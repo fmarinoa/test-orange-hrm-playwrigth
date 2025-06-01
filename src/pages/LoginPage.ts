@@ -1,5 +1,5 @@
 export class LoginPage {
-  static readonly usernameField = '#username';
-  static readonly passwordField = '#password';
-  static readonly loginButton = 'button[type="submit"]';
+  static readonly usernameField = 'input[name=username]';
+  static readonly passwordField = 'input[name=password]';
+  static readonly loginButton = 'button[type=submit]';
 }
