@@ -5,7 +5,7 @@ let browser: Browser;
 let page: Page;
 
 Given('I navigate to the login page', async function () {
-  browser = await chromium.launch({ headless: false });
+  browser = await chromium.launch({ headless: true });
   page = await browser.newPage();
   await page.goto('https://opensource-demo.orangehrmlive.com/');
 });
@@ -19,6 +19,7 @@ When('I enter valid credentials', async function () {
 Then('I should be redirected to the dashboard', async function () {
   let dashboardElement = page.locator('//*[@id="app"]/div[1]/div[1]/header/div[1]/div[1]/span/h6');
   await expect(dashboardElement).toBeVisible();
+  await browser.close();
 });
 
 When('I enter invalid credentials', async function () {
@@ -35,4 +36,5 @@ Then('I should see an error message', async function () {
 Then('The error message should be {string}', async function (expectedMessage: string) {
   let errorElement = page.locator('//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]');
   await expect(errorElement).toHaveText(expectedMessage);
+  await browser.close();
 })
