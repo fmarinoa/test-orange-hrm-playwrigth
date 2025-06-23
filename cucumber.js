@@ -12,7 +12,6 @@ module.exports = {
         paths: [
             'tests/features/**/*.feature'
         ],
-        publishQuiet: true,
         dryRun: false
     }
 };
