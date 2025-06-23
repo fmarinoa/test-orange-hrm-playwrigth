@@ -7,9 +7,9 @@
             "tests/features/"
         ],
         "publishQuiet": true,
-        "dryRun": false,
+        "dryRun": true,
         "require": [
-            "tests/steps"
+            "tests/steps/**/*.ts"
         ],
         "requireModule": [
             "ts-node/register"

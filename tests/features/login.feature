@@ -9,3 +9,4 @@ Feature: Login Functionality
     Given I navigate to the login page
     When I enter invalid credentials
     Then I should see an error message
+    Then The error message should be "Invalid credentials"
