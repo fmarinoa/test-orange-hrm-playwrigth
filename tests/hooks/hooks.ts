@@ -10,12 +10,11 @@ let context: BrowserContext;
 
 BeforeAll(async function () {
     fs.writeFileSync(`./${Constants.TARGET}/startTime.txt`, new Date().toISOString());
-    const browserKey = process.env.BROWSER!;
-    const { browser: b, humanName, version } = await createBrowser(browserKey);
+    const { browser: b, humanName } = await createBrowser();
     browser = b;
     fs.writeFileSync(
         `./${Constants.TARGET}/browserInfo.json`,
-        JSON.stringify({ name: humanName, version }, null, 2)
+        JSON.stringify({ name: humanName, version: browser.version() }, null, 2)
     );
 });
 
