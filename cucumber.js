@@ -16,7 +16,6 @@ module.exports = {
         ],
         format: [
             'json:reports/cucumber_report.json',
-            'html:reports/cucumber_report.html',
             'progress-bar'
         ],
     }
