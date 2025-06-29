@@ -8,7 +8,7 @@ const browserMap = {
 
 export async function createBrowser(browserKey: string): Promise<{ browser: Browser, humanName: string, version: string }> {
     const entry = browserMap[browserKey.toLowerCase().trim() as keyof typeof browserMap] || browserMap.chromium;
-    const browser = await entry.launcher.launch({ headless: true });
+    const browser = await entry.launcher.launch({ headless: process.env.HEADLESS === "true" });
     const version = browser.version();
     return { browser, humanName: entry.name, version };
 }
