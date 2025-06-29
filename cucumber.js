@@ -18,5 +18,6 @@ module.exports = {
             'json:target/cucumber/report.json',
             'progress-bar'
         ],
+        parallel: 2
     }
 };
