@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "npx playwright install",
+    "test:local": "cross-env HEADLESS=false SCREENSHOT=true cucumber-js",
+    "test:ci": "cross-env HEADLESS=true SCREENSHOT=false cucumber-js",
+    "report:generate": "npx ts-node src/helper/report.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.29"
-  },
-  "dependencies": {
-    "test-orange-hrm-playwrigth": "file:"
+    "cross-env": "^7.0.3",
+    "multiple-cucumber-html-reporter": "^3.9.3",
+    "ts-node": "^10.9.2"
   }
 }
