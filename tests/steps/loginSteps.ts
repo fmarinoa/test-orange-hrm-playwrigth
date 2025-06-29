@@ -33,3 +33,10 @@ Then('The error message should be {string}', async function (expectedMessage: st
   let errorElement = getPage().locator('//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]');
   await expect(errorElement).toHaveText(expectedMessage);
 })
+
+When('I enter credentials', async function (dataTable) {
+  const [username, password] = dataTable.raw()[0];
+  await getPage().fill('input[name="username"]', username);
+  await getPage().fill('input[name="password"]', password);
+  await getPage().click('button[type="submit"]');
+})
