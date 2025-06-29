@@ -1,18 +1,23 @@
 module.exports = {
     default: {
-        requireModule: [
-            'ts-node/register'
-        ],
-        require: [
-            'tests/steps/**/*.ts',
-            'tests/hooks/hooks.ts'
-        ],
         formatOptions: {
             snippetInterface: 'async-await'
         },
         paths: [
             'tests/features/**/*.feature'
         ],
-        dryRun: false
+        dryRun: false,
+        require: [
+            'tests/steps/**/*.ts',
+            'tests/hooks/hooks.ts'
+        ],
+        requireModule: [
+            'ts-node/register'
+        ],
+        format: [
+            'json:reports/cucumber_report.json',
+            'html:reports/cucumber_report.html',
+            'progress-bar'
+        ],
     }
 };
