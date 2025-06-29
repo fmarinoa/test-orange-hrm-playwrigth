@@ -27,7 +27,7 @@ Before(async function () {
 After(async function (scenario) {
     if (scenario.result?.status === Status.FAILED && process.env.SCREENSHOT === "true") {
         const screenshotPath = `./${Constants.TARGET}/screenshots/${scenario.pickle.name}.png`;
-        const screenshot = await getPage()?.screenshot({ path: screenshotPath });
+        const screenshot = await getPage().screenshot({ path: screenshotPath });
         this.attach(screenshot, 'image/png');
     }
     await getPage()?.close();
