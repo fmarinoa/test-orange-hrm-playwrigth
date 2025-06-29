@@ -1,16 +1,21 @@
 {
   "name": "test-orange-hrm-playwrigth",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Automated tests for OrangeHRM using Playwright and Cucumber",
   "scripts": {
     "postinstall": "npx playwright install --with-deps",
     "test:local": "cross-env HEADLESS=false SCREENSHOT=true cucumber-js",
     "test:ci": "cross-env HEADLESS=true SCREENSHOT=false cucumber-js",
     "report:generate": "npx ts-node src/helper/report.ts"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "playwright",
+    "cucumber",
+    "typescript",
+    "test",
+    "automation"
+  ],
+  "author": "Franco Mariño",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^11.3.0",
