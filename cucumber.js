@@ -15,7 +15,7 @@ module.exports = {
             'ts-node/register'
         ],
         format: [
-            'json:reports/cucumber_report.json',
+            'json:target/cucumber_report.json',
             'progress-bar'
         ],
     }
