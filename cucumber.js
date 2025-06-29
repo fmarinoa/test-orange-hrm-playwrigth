@@ -4,7 +4,8 @@ module.exports = {
             'ts-node/register'
         ],
         require: [
-            'tests/steps/**/*.ts'
+            'tests/steps/**/*.ts',
+            'tests/hooks/hooks.ts'
         ],
         formatOptions: {
             snippetInterface: 'async-await'
