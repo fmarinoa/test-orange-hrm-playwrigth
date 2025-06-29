@@ -1,3 +1,3 @@
-export declare enum Constants {
+export enum Constants {
     TARGET = "target"
 }
