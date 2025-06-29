@@ -1,6 +1,7 @@
 import { BeforeAll, Before, AfterAll, After, Status } from "@cucumber/cucumber";
 import { chromium, Browser, BrowserContext } from '@playwright/test';
 import { setPage, getPage } from "./pageFixture";
+import { Constants } from "./../../src/helper/constants";
 
 let browser: Browser;
 let context: BrowserContext;
@@ -17,7 +18,7 @@ Before(async function () {
 
 After(async function (scenario) {
     if (scenario.result?.status === Status.FAILED) {
-        const screenshotPath = `./target/screenshots/${scenario.pickle.name}.png`;
+        const screenshotPath = `./${Constants.TARGET}/screenshots/${scenario.pickle.name}.png`;
         const screenshot = await getPage()?.screenshot({ path: screenshotPath });
         this.attach(screenshot, 'image/png');
     }

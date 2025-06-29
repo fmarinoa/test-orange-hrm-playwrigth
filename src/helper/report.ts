@@ -1,8 +1,10 @@
+import { Constants } from "./constants";
+
 const report = require("multiple-cucumber-html-reporter");
 
 report.generate({
-    jsonDir: "./target/",
-    reportPath: "./target/report/",
+    jsonDir: `./${Constants.TARGET}/`,
+    reportPath: `./${Constants.TARGET}/report/`,
     metadata: {
         browser: {
             name: "chrome",

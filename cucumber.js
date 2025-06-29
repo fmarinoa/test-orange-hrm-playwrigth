@@ -1,3 +1,5 @@
+import { Constants } from "./src/helper/constants";
+
 module.exports = {
     default: {
         formatOptions: {
@@ -15,7 +17,7 @@ module.exports = {
             'ts-node/register'
         ],
         format: [
-            'json:target/cucumber_report.json',
+            `json:${Constants.TARGET}/cucumber_report.json`,
             'progress-bar'
         ],
     }
