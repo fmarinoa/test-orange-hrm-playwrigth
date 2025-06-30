@@ -8,7 +8,8 @@
     "test:ci": "cross-env HEADLESS=true SCREENSHOT=false cucumber-js",
     "report:generate": "npx ts-node src/helper/report.ts",
     "lint": "eslint . --ext .ts,.js",
-    "lint:fix": "eslint . --ext .ts,.js --fix"
+    "lint:fix": "eslint . --ext .ts,.js --fix",
+    "prepare": "husky install"
   },
   "keywords": [
     "playwright",
@@ -32,6 +33,7 @@
     "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-security": "^3.0.1",
     "eslint-plugin-sonarjs": "^3.0.4",
+    "husky": "^9.1.7",
     "multiple-cucumber-html-reporter": "^3.9.3",
     "prettier": "^3.6.2",
     "ts-node": "^10.9.2",
