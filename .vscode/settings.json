@@ -1,6 +1,5 @@
 {
-    // Configure project-level settings for the official Cucumber extension in Visual Studio Code.
-    // The settings now include subdirectories under 'features' and 'steps'
+    // 🥒 Configuración de Cucumber VS Code
     "cucumber.features": [
         "tests/features/*.feature"
     ],
@@ -8,5 +7,21 @@
         "tests/steps/*.ts",
         "tests/hooks/hooks.ts"
     ],
-    "editor.formatOnSave": true
+    // 💅 No usar Prettier directamente como formateador
+    "editor.defaultFormatter": null,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.eslint": true
+    },
+    // 🧠 ESLint validará estos lenguajes
+    "eslint.validate": [
+        "typescript",
+        "javascript"
+    ],
+    // 📐 Prettier embebido en ESLint
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "prettier.semi": true,
+    // ✅ Limpieza de imports TS
+    "typescript.preferences.importModuleSpecifier": "non-relative"
 }
