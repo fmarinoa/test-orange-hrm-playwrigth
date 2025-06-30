@@ -1,0 +1,12 @@
+{
+    // Configure project-level settings for the official Cucumber extension in Visual Studio Code.
+    // The settings now include subdirectories under 'features' and 'steps'
+    "cucumber.features": [
+        "tests/features/*.feature"
+    ],
+    "cucumber.glue": [
+        "tests/steps/*.ts",
+        "tests/hooks/hooks.ts"
+    ],
+    "editor.formatOnSave": true
+}
