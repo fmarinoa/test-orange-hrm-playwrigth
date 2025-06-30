@@ -1,3 +1,3 @@
 export enum Constants {
-    TARGET = "target"
+  TARGET = 'target',
 }
