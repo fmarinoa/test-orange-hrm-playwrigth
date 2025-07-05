@@ -6,10 +6,6 @@ const browserMap = {
   webkit: { launcher: webkit, name: 'safari' },
 };
 
-const options: LaunchOptions = {
-  headless: process.env.HEADLESS === 'true',
-};
-
 /**
  * Launches a browser instance based on the `BROWSER` environment variable.
  * If the variable is not set, defaults to launching Chromium.
@@ -24,15 +20,18 @@ export async function invokeBrowser(): Promise<{
   browser: Browser;
   humanName: string;
 }> {
-  let entry;
+  const browserKey = process.env.BROWSER || 'chromium';
 
-  const browserKey = process.env.BROWSER;
-  if (!browserKey) {
-    entry = browserMap.chromium;
-  } else {
-    entry = browserMap[browserKey.toLowerCase().trim() as keyof typeof browserMap];
-  }
+  const entry = browserMap[browserKey.toLowerCase().trim() as keyof typeof browserMap];
 
-  const browser = await entry.launcher.launch(options);
-  return { browser: browser, humanName: entry.name };
+  const options: LaunchOptions = {
+    headless: process.env.HEADLESS === 'true'
+  };
+
+  return {
+    browser:
+      await entry.launcher.launch(options),
+    humanName:
+      entry.name
+  };
 }
