@@ -8,7 +8,7 @@ const eslintPluginSonarjs = require('eslint-plugin-sonarjs');
 
 module.exports = [
     {
-        files: ['**/*.ts'],
+        files: ['*.ts'],
         languageOptions: {
             parser: tsParser,
             parserOptions: {
