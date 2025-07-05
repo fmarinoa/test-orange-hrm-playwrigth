@@ -7,21 +7,5 @@
         "tests/steps/*.ts",
         "tests/hooks/hooks.ts"
     ],
-    // 💅 No usar Prettier directamente como formateador
-    "editor.defaultFormatter": null,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.fixAll.eslint": true
-    },
-    // 🧠 ESLint validará estos lenguajes
-    "eslint.validate": [
-        "typescript",
-        "javascript"
-    ],
-    // 📐 Prettier embebido en ESLint
-    "prettier.singleQuote": true,
-    "prettier.trailingComma": "all",
-    "prettier.semi": true,
-    // ✅ Limpieza de imports TS
-    "typescript.preferences.importModuleSpecifier": "non-relative"
+    "editor.formatOnSave": true,
 }
