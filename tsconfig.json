@@ -5,9 +5,9 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "strict": true,
-    "types": [
-      "@types/node",
-      "@cucumber/cucumber"
+    "typeRoots": [
+      "./node_modules/@types",
+      "src/helper/types"
     ]
   },
   "include": [
