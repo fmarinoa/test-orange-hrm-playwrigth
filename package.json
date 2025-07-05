@@ -4,8 +4,9 @@
   "description": "Automated tests for OrangeHRM using Playwright and Cucumber",
   "scripts": {
     "postinstall": "npx playwright install --with-deps",
-    "test:local": "cross-env ENVIRONMENT=local cucumber-js",
-    "test:ci": "cross-env ENVIRONMENT=dev cucumber-js",
+    "test:local": "cross-env ENVIRONMENT=local cucumber-js || true",
+    "test:ci": "cross-env ENVIRONMENT=prod cucumber-js",
+    "posttest:local": "npm run report:generate",
     "report:generate": "npx ts-node src/helper/report.ts",
     "lint": "eslint . --ext .ts,.js",
     "lint:fix": "eslint . --ext .ts,.js --fix"
