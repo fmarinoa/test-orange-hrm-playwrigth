@@ -4,7 +4,7 @@ import { expect } from '@playwright/test';
 import { getPage } from './../hooks/pageFixture';
 
 Given('I navigate to the login page', async function () {
-  await getPage().goto('https://opensource-demo.orangehrmlive.com/');
+  await getPage().goto(process.env.BASEURL!);
 });
 
 When('I enter valid credentials', async function () {

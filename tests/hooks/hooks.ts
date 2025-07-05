@@ -7,14 +7,18 @@ import { invokeBrowser } from '../../src/helper/browser/browserFactory';
 
 import { setPage, getPage } from './pageFixture';
 import { Constants } from './../../src/helper/constants';
+import { getEnv } from '../../src/helper/env/env';
 
 let browser: Browser;
 let context: BrowserContext;
 
 BeforeAll(async function () {
   fs.writeFileSync(`./${Constants.TARGET}/startTime.txt`, new Date().toISOString());
+
+  getEnv();
   const { browser: b, humanName } = await invokeBrowser();
   browser = b;
+
   fs.writeFileSync(
     `./${Constants.TARGET}/browserInfo.json`,
     JSON.stringify({ name: humanName, version: browser.version() }, null, 2),
