@@ -3,16 +3,17 @@ import * as fs from 'fs';
 import { BeforeAll, Before, AfterAll, After, Status } from '@cucumber/cucumber';
 import { Browser, BrowserContext } from '@playwright/test';
 
+import { invokeBrowser } from '../../src/helper/browser/browserFactory';
+
 import { setPage, getPage } from './pageFixture';
 import { Constants } from './../../src/helper/constants';
-import { createBrowser } from './../../src/browser/browserFactory';
 
 let browser: Browser;
 let context: BrowserContext;
 
 BeforeAll(async function () {
   fs.writeFileSync(`./${Constants.TARGET}/startTime.txt`, new Date().toISOString());
-  const { browser: b, humanName } = await createBrowser();
+  const { browser: b, humanName } = await invokeBrowser();
   browser = b;
   fs.writeFileSync(
     `./${Constants.TARGET}/browserInfo.json`,
