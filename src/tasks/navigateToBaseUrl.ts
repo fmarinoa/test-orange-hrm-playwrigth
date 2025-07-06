@@ -1,14 +1,18 @@
 import { Page } from '@playwright/test';
-import { BasePage } from '../pages/basePage';
+import { BaseTask } from '../helper/base/baseTask';
+import { BasePage } from '../helper/base/basePage';
 
-export class Navigate {
+export class Navigate extends BaseTask {
+    constructor(
+        private readonly baseUrl = process.env.BASEURL,
+    ) { super(); }
+
+    async using(page: Page): Promise<void> {
+        if (!this.baseUrl) throw new Error('BASEURL not defined');
+        await new BasePage(page).goTo(this.baseUrl);
+    }
+
     static toBaseUrl() {
-        return {
-            using: async (page: Page) => {
-                const baseUrl = process.env.BASEURL;
-                if (!baseUrl) throw new Error('BASEURL not defined');
-                await new BasePage(page).goTo(baseUrl);
-            }
-        };
+        return new Navigate();
     }
 }

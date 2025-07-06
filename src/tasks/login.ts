@@ -1,15 +1,21 @@
 import { Page } from '@playwright/test';
+import { BaseTask } from '../helper/base/baseTask';
 import { LoginPage } from '../pages/loginPage';
 
-export class Login {
-    static with(username: string, password: string) {
-        return {
-            using: async (page: Page) => {
-                const loginPage = new LoginPage(page);
-                await loginPage.typeUsername(username);
-                await loginPage.typePassword(password);
-                await loginPage.clickLoginButton();
-            }
-        };
+export class Login extends BaseTask {
+    constructor(
+        private readonly username: string,
+        private readonly password: string
+    ) { super(); }
+
+    async using(page: Page): Promise<void> {
+        const loginPage = new LoginPage(page);
+        await loginPage.typeUsername(this.username);
+        await loginPage.typePassword(this.password);
+        await loginPage.clickLoginButton();
+    }
+
+    static withCredentials(username: string, password: string) {
+        return new Login(username, password);
     }
 }

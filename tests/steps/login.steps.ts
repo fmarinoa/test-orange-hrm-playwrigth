@@ -11,7 +11,7 @@ Given('I navigate to the login page', async function () {
 
 When('I enter credentials', async function (dataTable) {
   const [username, password] = dataTable.raw()[0];
-  await Login.with(username, password).using(getPage());
+  await Login.withCredentials(username, password).using(getPage());
 });
 
 Then('I should be redirected to the dashboard', async function () {

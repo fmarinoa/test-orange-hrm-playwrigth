@@ -1,5 +1,5 @@
 import { Page, Locator } from '@playwright/test';
-import { Constants } from '../helper/constants';
+import { Constants } from '../constants';
 
 /**
  * Represents a base page object providing common methods for interacting with web pages using Playwright.
