@@ -1,11 +1,13 @@
 Feature: Login Functionality
 
+  @CI
   Scenario: Successful Login
     Given I navigate to the login page
     When I enter credentials
       | Admin | admin123 |
     Then I should be redirected to the dashboard
 
+  @CI
   Scenario Outline: Unsuccessful Login
     Given I navigate to the login page
     When I enter credentials
