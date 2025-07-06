@@ -39,8 +39,15 @@ export class BasePage {
         return locator;
     }
 
-    async isVisible(selector: string): Promise<boolean> {
-        return this.page.isVisible(selector);
+    async isVisible(selector: string, timeout: number = Constants.SHORT_TIMEOUT): Promise<boolean> {
+        const element = this.page.locator(selector);
+        try {
+            await element.waitFor({ state: 'visible', timeout });
+            return true;
+        } catch {
+            console.warn(`⚠️ Element not visible within ${timeout}ms: ${selector}`);
+            return false;
+        }
     }
 
     async click(selector: string): Promise<void> {

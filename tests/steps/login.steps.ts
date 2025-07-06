@@ -4,6 +4,8 @@ import { expect } from '@playwright/test';
 import { getPage } from '../hooks/pageFixture';
 import { Navigate } from '../../src/tasks/navigateToBaseUrl';
 import { Login } from '../../src/tasks/login';
+import { LoginPage } from '../../src/pages/loginPage';
+import { HomePage } from '../../src/pages/homePage';
 
 Given('I navigate to the login page', async function () {
   await Navigate.toBaseUrl().using(getPage());
@@ -15,22 +17,11 @@ When('I enter credentials', async function (dataTable) {
 });
 
 Then('I should be redirected to the dashboard', async function () {
-  let dashboardElement = getPage().locator(
-    '//*[@id="app"]/div[1]/div[1]/header/div[1]/div[1]/span/h6',
-  );
-  await expect(dashboardElement).toBeVisible();
-});
-
-Then('I should see an error message', async function () {
-  let errorElement = getPage().locator(
-    '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]',
-  );
-  await expect(errorElement).toBeVisible();
+  const dashboardElement = await new HomePage(getPage()).isDashboardVisible();
+  expect(dashboardElement).toBe(true);
 });
 
 Then('The error message should be {string}', async function (expectedMessage: string) {
-  let errorElement = getPage().locator(
-    '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]',
-  );
-  await expect(errorElement).toHaveText(expectedMessage);
+  const actual = await new LoginPage(getPage()).getErrorMessage();
+  expect(actual).toEqual(expectedMessage);
 });
