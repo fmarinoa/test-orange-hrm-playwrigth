@@ -1,4 +1,5 @@
 import { Page, Locator } from '@playwright/test';
+import { Constants } from '../helper/constants';
 
 /**
  * Represents a base page object providing common methods for interacting with web pages using Playwright.
@@ -36,7 +37,7 @@ export class BasePage {
         return this.page.title();
     }
 
-    async waitForSelector(selector: string, timeout: number = 5000): Promise<Locator> {
+    async waitForSelector(selector: string, timeout: number = Constants.LONG_TIMEOUT): Promise<Locator> {
         const locator = this.page.locator(selector);
         await locator.waitFor({ timeout });
         return locator;
@@ -47,10 +48,17 @@ export class BasePage {
     }
 
     async click(selector: string): Promise<void> {
-        await this.page.click(selector);
+        const locator = await this.waitForSelector(selector);
+        await locator.click();
     }
 
     async type(selector: string, text: string): Promise<void> {
-        await this.page.fill(selector, text);
+        const locator = await this.waitForSelector(selector);
+        await locator.fill(text);
+    }
+
+    async getText(selector: string): Promise<string> {
+        const locator = await this.waitForSelector(selector);
+        return (await locator.textContent()) ?? '';
     }
 }
