@@ -9,6 +9,11 @@ Given('I navigate to the login page', async function () {
   await Navigate.toBaseUrl().using(getPage());
 });
 
+When('I enter credentials', async function (dataTable) {
+  const [username, password] = dataTable.raw()[0];
+  await Login.with(username, password).using(getPage());
+});
+
 Then('I should be redirected to the dashboard', async function () {
   let dashboardElement = getPage().locator(
     '//*[@id="app"]/div[1]/div[1]/header/div[1]/div[1]/span/h6',
@@ -28,9 +33,4 @@ Then('The error message should be {string}', async function (expectedMessage: st
     '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]',
   );
   await expect(errorElement).toHaveText(expectedMessage);
-});
-
-When('I enter credentials', async function (dataTable) {
-  const [username, password] = dataTable.raw()[0];
-  await Login.with(username, password).using(getPage());
 });
