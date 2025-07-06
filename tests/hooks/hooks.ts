@@ -3,11 +3,11 @@ import * as fs from 'fs';
 import { BeforeAll, Before, AfterAll, After, Status } from '@cucumber/cucumber';
 import { Browser, BrowserContext } from '@playwright/test';
 
-import { invokeBrowser } from '../../src/helper/browser/browserFactory';
+import { invokeBrowser } from '../../src/helpers/browser/browserFactory';
 
 import { setPage, getPage } from './pageFixture';
-import { Constants } from './../../src/helper/constants';
-import { getEnv } from '../../src/helper/env/env';
+import { Constants } from '../../src/helpers/constants';
+import { getEnv } from '../../src/helpers/env/env';
 
 let browser: Browser;
 let context: BrowserContext;

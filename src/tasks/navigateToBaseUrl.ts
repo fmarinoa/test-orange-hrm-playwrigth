@@ -1,6 +1,6 @@
 import { Page } from '@playwright/test';
-import { BaseTask } from '../helper/base/baseTask';
-import { BasePage } from '../helper/base/basePage';
+import { BaseTask } from '../helpers/base/baseTask';
+import { BasePage } from '../helpers/base/basePage';
 
 export class Navigate extends BaseTask {
     constructor(

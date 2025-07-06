@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BaseTask } from '../helper/base/baseTask';
+import { BaseTask } from '../helpers/base/baseTask';
 import { LoginPage } from '../pages/loginPage';
 
 export class Login extends BaseTask {
