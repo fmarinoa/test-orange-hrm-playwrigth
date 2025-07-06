@@ -1,0 +1,11 @@
+{
+    // 🥒 Configuración de Cucumber VS Code
+    "cucumber.features": [
+        "tests/features/*.feature"
+    ],
+    "cucumber.glue": [
+        "tests/steps/*.ts",
+        "tests/hooks/hooks.ts"
+    ],
+    "editor.formatOnSave": true,
+}
