@@ -1,11 +1,11 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 
-import { getPage } from './../hooks/pageFixture';
-import { BasePage } from '../../src/pages/basePage';
+import { getPage } from '../hooks/pageFixture';
+import { Navigate } from '../../src/tasks/navigateToBaseUrl';
 
 Given('I navigate to the login page', async function () {
-  await new BasePage(getPage()).navigateToBaseUrl();
+  await Navigate.toBaseUrl().using(getPage());
 });
 
 When('I enter valid credentials', async function () {

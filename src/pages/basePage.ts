@@ -25,12 +25,8 @@ export class BasePage {
         this.page = page;
     }
 
-    async navigateToBaseUrl(): Promise<void> {
-        const baseUrl = process.env.BASEURL;
-        if (!baseUrl) {
-            throw new Error('La variable de entorno BASEURL no está definida');
-        }
-        await this.page.goto(baseUrl);
+    async goTo(url: string): Promise<void> {
+        await this.page.goto(url);
     }
 
     async getTitle(): Promise<string> {
