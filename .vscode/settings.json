@@ -7,5 +7,6 @@
         "tests/steps/*.ts",
         "tests/hooks/hooks.ts"
     ],
+    // Formatear al guardar
     "editor.formatOnSave": true,
 }

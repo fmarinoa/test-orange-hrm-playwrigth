@@ -9,3 +9,7 @@ export function setPage(p: Page) {
 export function getPage(): Page {
   return page!;
 }
+
+export async function closePage(): Promise<void> {
+  await page?.close();
+}
