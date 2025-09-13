@@ -16,7 +16,7 @@ function readText(path: string, fallback: string) {
 let browserInfo = { name: 'unknown', version: 'unknown' };
 try {
   browserInfo = JSON.parse(readText(`./${Constants.TARGET}/browserInfo.json`, '{}'));
-} catch {}
+} catch { }
 
 const startTime = new Date(readText(`./${Constants.TARGET}/startTime.txt`, 'N/A')).toLocaleString();
 const endTime = new Date(readText(`./${Constants.TARGET}/endTime.txt`, 'N/A')).toLocaleString();
