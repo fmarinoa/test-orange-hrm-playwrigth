@@ -12,7 +12,7 @@ Feature: Login Functionality
     Given I navigate to the login page
     When I enter credentials
       | <username> | <password> |
-    Then The error message should be "Invalid credentials"
+    Then The error message should be "Invalid credentialasds"
 
     Examples:
       | username          | password    |
