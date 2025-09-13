@@ -1,12 +1,12 @@
-const tseslint = require('@typescript-eslint/eslint-plugin');
-const tsParser = require('@typescript-eslint/parser');
-const eslintPluginPrettier = require('eslint-plugin-prettier');
-const eslintPluginPlaywright = require('eslint-plugin-playwright');
-const eslintPluginImport = require('eslint-plugin-import');
-const eslintPluginSecurity = require('eslint-plugin-security');
-const eslintPluginSonarjs = require('eslint-plugin-sonarjs');
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsParser from '@typescript-eslint/parser';
+import eslintPluginPrettier from 'eslint-plugin-prettier';
+import eslintPluginPlaywright from 'eslint-plugin-playwright';
+import eslintPluginImport from 'eslint-plugin-import';
+import eslintPluginSecurity from 'eslint-plugin-security';
+import eslintPluginSonarjs from 'eslint-plugin-sonarjs';
 
-module.exports = [
+export default [
     {
         files: ['*.ts'],
         languageOptions: {
@@ -31,10 +31,20 @@ module.exports = [
             'playwright/no-skipped-test': 'warn',
             'playwright/no-force-option': 'error',
 
-            'import/order': ['warn', {
-                groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-                'newlines-between': 'always',
-            }],
+            'import/order': [
+                'warn',
+                {
+                    groups: [
+                        'builtin',
+                        'external',
+                        'internal',
+                        'parent',
+                        'sibling',
+                        'index',
+                    ],
+                    'newlines-between': 'always',
+                },
+            ],
 
             'security/detect-object-injection': 'off',
             'prettier/prettier': 'warn',
