@@ -20,23 +20,25 @@
   ],
   "author": "Franco Mariño",
   "license": "ISC",
+  "dependencies": {
+    "@cucumber/cucumber": "12.2.0",
+    "@playwright/test": "1.52.0",
+    "cross-env": "7.0.3",
+    "dotenv": "17.0.1",
+    "multiple-cucumber-html-reporter": "3.9.3",
+    "ts-node": "10.9.2"
+  },
   "devDependencies": {
-    "@cucumber/cucumber": "^11.3.0",
-    "@playwright/test": "^1.52.0",
-    "@typescript-eslint/eslint-plugin": "^8.35.0",
-    "@typescript-eslint/parser": "^8.35.0",
-    "cross-env": "^7.0.3",
-    "dotenv": "^17.0.1",
-    "eslint": "^9.30.0",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-playwright": "^2.2.0",
-    "eslint-plugin-prettier": "^5.5.1",
-    "eslint-plugin-security": "^3.0.1",
-    "eslint-plugin-sonarjs": "^3.0.4",
-    "multiple-cucumber-html-reporter": "^3.9.3",
-    "prettier": "^3.6.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "@typescript-eslint/eslint-plugin": "8.35.0",
+    "@typescript-eslint/parser": "8.35.0",
+    "eslint": "9.30.0",
+    "eslint-config-prettier": "10.1.5",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-playwright": "2.2.0",
+    "eslint-plugin-prettier": "5.5.1",
+    "eslint-plugin-security": "3.0.1",
+    "eslint-plugin-sonarjs": "3.0.4",
+    "prettier": "3.6.2",
+    "typescript": "5.8.3"
   }
 }
