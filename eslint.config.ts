@@ -49,6 +49,13 @@ export default [
             'security/detect-object-injection': 'off',
             'prettier/prettier': 'warn',
             'sonarjs/no-duplicate-string': 'warn',
-        },
+        }, 
+        ignores: [
+            'eslint.config.ts',
+            'commitlint.config.ts',
+            '*.d.ts',
+            'node_modules/',
+            'dist/',
+        ],
     },
 ];
