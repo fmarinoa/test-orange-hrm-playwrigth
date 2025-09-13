@@ -18,6 +18,10 @@ jobs:
       deployments: write
       contents: read
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -33,12 +37,15 @@ jobs:
       - name: Run Cucumber tests
         run: npm run test:ci
 
+      - name: Rename report.html to index.html
+        run: mv ${{ env.CUCUMBER_REPORT_DIR }}report.html ${{ env.CUCUMBER_REPORT_DIR }}index.html
+
       - name: Save report like artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-report
-          path: ${{ env.CUCUMBER_REPORT_DIR }}report.html
+          path: ${{ env.CUCUMBER_REPORT_DIR }}index.html
 
       - name: Upload Pages artifact (test results)
         if: always()
