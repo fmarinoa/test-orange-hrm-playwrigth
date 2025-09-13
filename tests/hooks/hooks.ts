@@ -1,4 +1,4 @@
-import { BeforeAll, Before, AfterAll, After, Status, ITestCaseHookParameter } from '@cucumber/cucumber';
+import { BeforeAll, Before, AfterAll, After, Status, ITestCaseHookParameter, AfterStep } from '@cucumber/cucumber';
 import { Browser, BrowserContext } from '@playwright/test';
 
 import { invokeBrowser } from '../../src/helpers/browser/browserFactory';
@@ -51,4 +51,8 @@ After(async function (scenario) {
 AfterAll(async function () {
   await closeBrowser();
   writeEndTime();
+});
+
+AfterStep(async function (scenario) {
+  this.attach(await takeScreenshot(scenario), 'image/png');
 });

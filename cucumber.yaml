@@ -11,5 +11,6 @@ default:
     - 'ts-node/register'
   format:
     - 'json:target/cucumber/report.json'
+    - 'html:target/cucumber/report.html'
   publish: false
-  parallel: 2
+  parallel: 0
